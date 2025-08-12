@@ -64,11 +64,7 @@ function M.open_with_hx(window, pane, url, opts)
     else
         local process = basename(hx_pane:get_foreground_process_name())
         local command
-        if process == "hx" then
-            command = ":open " .. filename .. "\r\n"
-        else
-            command = "hx " .. filename .. "\r\n"
-        end
+        command = ":open " .. filename .. "\r\n"
         wezterm.log_info("process: " .. process .. ", action: " .. command)
         local action = act.SendString(command)
         window:perform_action(action, hx_pane)
